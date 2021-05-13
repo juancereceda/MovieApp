@@ -1,6 +1,6 @@
 # Redux OMDB APP
 
-En este ejercicio vamos a crear una APP que utilice la API de [OMDB](http://www.omdbapi.com/). Vamos a crear nuestra app utilizando __REACT__ y __REDUX__.
+En este ejercicio vamos a crear una APP que utilice la API de [OMDB](https://www.omdbapi.com/). Vamos a crear nuestra app utilizando __REACT__ y __REDUX__.
 
 > Vamos a necesitar una APIKEY ya que la API de OMDB es paga. Usen `apikey=20dac387`
 
@@ -31,9 +31,9 @@ Y por ultimo en `Movie.js` sera nuestro compente en donde mostraremos una pelicu
 
 En nuestro archivo `index.js` en nuestra carpeta actions. Por ahora vamos a crear 4 actions. Una para hacer la request a la API y traer todas las peliculas `getMovies`,otra para traer los detalles de la pelicula especifica `getMovieDetail`, a otra para agregarlas como Favoritas `addMovieFavorite` y otra para eliminarla de favoritas `removeMovieFavorite`.
 
-> Abajo tienes un par de ejemplos, para las dos que faltan tienes que investigar y hacerlo por tu propia cuenta. La api que usamos es `http://www.omdbapi.com/`
+> Abajo tienes un par de ejemplos, para las dos que faltan tienes que investigar y hacerlo por tu propia cuenta. La api que usamos es `https://www.omdbapi.com/`
 
-> Para obtener alguna película a partir de su ID pueden usar el endpoint: http://www.omdbapi.com/?apikey=20dac387&i={idMovie}
+> Para obtener alguna película a partir de su ID pueden usar el endpoint: https://www.omdbapi.com/?apikey=20dac387&i={idMovie}
 
 ```javascript
 export function addMovieFavorite(payload) {
@@ -42,7 +42,7 @@ export function addMovieFavorite(payload) {
 
 export function getMovies(titulo) {
   return function(dispatch) {
-    return fetch("http://www.omdbapi.com/?apikey=20dac387&s=" + titulo)
+    return fetch("https://www.omdbapi.com/?apikey=20dac387&s=" + titulo)
       .then(response => response.json())
       .then(json => {
         dispatch({ type: "GET_MOVIES", payload: json });
