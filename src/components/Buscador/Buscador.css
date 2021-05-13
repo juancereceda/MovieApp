@@ -1,0 +1,45 @@
+.cnt {
+    padding-top: 10px;
+}
+.form-container {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.form-container button {
+    margin-left: 20px;
+}
+.label {
+    padding-right: 10px;
+}
+
+.movieCard {
+    position: relative;
+    width: fit-content;
+    margin: 10px;
+}
+
+.fav {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#moviesList {
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: space-around;
+}
+
+.poster:hover {
+    filter:blur(10px)
+}
+
+.poster {
+    width: 185px;
+    height: 300px;
+}

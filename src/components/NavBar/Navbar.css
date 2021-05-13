@@ -1,0 +1,85 @@
+.navbar {
+  height: 56px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #525252;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.logoapp {
+  display: flex;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+}
+#logoHenry {
+  width: 48px;
+  height: 40px;
+  margin-top: 20px;
+  margin-right: 3px;
+}
+
+.navbar nav {
+  height: 100%;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  height: 100%;
+}
+
+.list-item {
+  margin: 0;
+  display: flex;
+  height: 50%;
+  width: auto;
+  align-items: center;
+}
+
+.list-item a {
+  color: white;
+  height: 80%;
+  padding: 16px 10px;
+  border-bottom: 4px solid transparent;
+}
+
+.list-item a:hover,
+.list-item a.active {
+  background-color: #742525;
+  color: white;
+}
+
+.searchBar {
+  display: flex;
+}
+
+.inputSearch {
+  background-color: rgba(255, 255, 255, 0);
+  color: black;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid black;
+  width: 200px;
+}
+
+.inputSearch::placeholder {
+  color: black;
+}
+
+.submitBtn {
+  border-radius: 50%;
+  background-color: rgba(59, 59, 149, 0);
+  margin-right: 5px;
+  border: 0px;
+}
