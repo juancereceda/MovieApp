@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, shallowEqual } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Buscador.css";
 import Cono from "../../notFound.png";
@@ -8,8 +8,11 @@ import {
   getMovies,
   removeMovieFavorite,
 } from "../../actions/index";
+import Blocked from "../../blocked.png";
 
 export function Buscador(props) {
+  var hiddenTitle = false;
+
   return (
     <div className="searchContainer">
       {props.movies ? (
@@ -17,7 +20,15 @@ export function Buscador(props) {
           {props.movies.map((movie) => (
             <div className="movieCard" key={movie.imdbID}>
               <Link to={`/movie/${movie.imdbID}`}>
-                <img className="poster" src={movie.Poster} />
+                {movie.Poster === "N/A" ? (
+                  <div className="notPoster">
+                    <span></span>
+                    <img src={Blocked} width="150" height="210" />
+                    <span>{movie.Title}</span>
+                  </div>
+                ) : (
+                  <img className="poster" src={movie.Poster} />
+                )}
               </Link>
 
               {props.favorites.indexOf(movie) === -1 ? (
