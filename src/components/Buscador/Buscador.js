@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect, shallowEqual } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./Buscador.css";
 import Cono from "../../notFound.png";
 import {
@@ -9,46 +9,87 @@ import {
   removeMovieFavorite,
 } from "../../actions/index";
 import Blocked from "../../blocked.png";
+import Prev from "../../left-arrow.png";
+import Next from "../../right-arrow.png";
 
 export function Buscador(props) {
-  var hiddenTitle = false;
+  var numPage = props.match.params.page.split("&")[0];
+  var title = props.match.params.page.split("=")[1];
+
+  const history = useHistory();
+
+  function handlePrev(event) {
+    event.preventDefault();
+    if (numPage > 1) {
+      numPage--;
+    }
+    history.push(`/search/${numPage}&title=${title}`);
+    props.getMovies(title, numPage);
+    console.log(props.movies);
+  }
+
+  function handleNext(event) {
+    numPage++;
+    event.preventDefault();
+    props.getMovies(title, numPage);
+    history.push(`/search/${numPage}&title=${title}`);
+    console.log(props.movies);
+  }
 
   return (
     <div className="searchContainer">
       {props.movies ? (
-        <ul id="moviesList">
-          {props.movies.map((movie) => (
-            <div className="movieCard" key={movie.imdbID}>
-              <Link to={`/movie/${movie.imdbID}`}>
-                {movie.Poster === "N/A" ? (
-                  <div className="notPoster">
-                    <span></span>
-                    <img src={Blocked} width="150" height="210" />
-                    <span>{movie.Title}</span>
-                  </div>
-                ) : (
-                  <img className="poster" src={movie.Poster} />
-                )}
-              </Link>
+        <div className="resultContainer">
+          <div id="moviesList">
+            {props.movies.map((movie) => (
+              <div className="movieCard" key={movie.imdbID}>
+                <Link to={`/movie/${movie.imdbID}`}>
+                  {movie.Poster === "N/A" ? (
+                    <div className="notPoster">
+                      <span></span>
+                      <img src={Blocked} width="150" height="210" />
+                      <span>{movie.Title}</span>
+                    </div>
+                  ) : (
+                    <img className="poster" src={movie.Poster} />
+                  )}
+                </Link>
 
-              {props.favorites.indexOf(movie) === -1 ? (
-                <button
-                  className="fav"
-                  onClick={() => props.addMovieFavorite(movie)}
-                >
-                  ☆
-                </button>
-              ) : (
-                <button
-                  className="fav"
-                  onClick={() => props.removeMovieFavorite(movie.imdbID)}
-                >
-                  ⭐
-                </button>
-              )}
-            </div>
-          ))}
-        </ul>
+                {props.favorites.indexOf(movie) === -1 ? (
+                  <button
+                    className="fav"
+                    onClick={() => props.addMovieFavorite(movie)}
+                  >
+                    ☆
+                  </button>
+                ) : (
+                  <button
+                    className="fav"
+                    onClick={() => props.removeMovieFavorite(movie.imdbID)}
+                  >
+                    ⭐
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
+          <div id="containerPrevNext">
+            <button className="prevNextButton">
+              <img
+                src={Prev}
+                className="prevNext"
+                onClick={(e) => handlePrev(e)}
+              />
+            </button>
+            <button className="prevNextButton">
+              <img
+                src={Next}
+                className="prevNext"
+                onClick={(e) => handleNext(e)}
+              />
+            </button>
+          </div>
+        </div>
       ) : (
         <div className="errorContainer">
           <h1 className="errorMsg">
@@ -71,11 +112,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     addMovieFavorite: (movie) => dispatch(addMovieFavorite(movie)),
-    getMovies: (title) => dispatch(getMovies(title)),
+    getMovies: (title, numPage) => dispatch(getMovies(title, numPage)),
     removeMovieFavorite: (id) => dispatch(removeMovieFavorite(id)),
   };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Buscador);
-/* 
-export default Buscador; */

@@ -32,7 +32,7 @@ export function NavBar(props) {
   function handleSubmit(event) {
     event.preventDefault();
     props.getMovies(state.title, numPage);
-    history.push(`/search/${numPage}`);
+    history.push(`/search/${numPage}&title=${state.title}`);
   }
 
   const title = state.title;
