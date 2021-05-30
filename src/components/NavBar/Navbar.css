@@ -3,7 +3,7 @@
   width: 100%;
   top: 0;
   left: 0;
-  background-color: #525252;
+  background-image: url("../../navBarBackground.jpeg");
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,11 +17,18 @@
     "Lucida Sans", Arial, sans-serif;
   color: white;
 }
+
 #logoHenry {
   width: 48px;
   height: 40px;
   margin-top: 20px;
   margin-right: 3px;
+  margin-right: 10px;
+}
+
+#logoHenry:hover {
+  height: 42px;
+  width: 49px;
 }
 
 .navbar nav {
@@ -47,16 +54,19 @@
 }
 
 .list-item a {
-  color: white;
+  color: rgb(189, 189, 189);
   height: 80%;
   padding: 16px 10px;
   border-bottom: 4px solid transparent;
 }
 
-.list-item a:hover,
+.list-item a:hover {
+  height: 110%;
+  width: 110%;
+}
+
 .list-item a.active {
-  background-color: #742525;
-  color: white;
+  background-color: rgb(66, 66, 66);
 }
 
 .searchBar {
@@ -65,16 +75,16 @@
 
 .inputSearch {
   background-color: rgba(255, 255, 255, 0);
-  color: black;
+  color: #706f6f;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #706f6f;
   width: 200px;
 }
 
 .inputSearch::placeholder {
-  color: black;
+  color: #706f6f;
 }
 
 .submitBtn {

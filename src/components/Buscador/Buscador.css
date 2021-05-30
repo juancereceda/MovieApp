@@ -1,45 +1,68 @@
 .cnt {
-    padding-top: 10px;
+  padding-top: 10px;
 }
+
 .form-container {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    display:flex;
-    flex-direction: row;
-    align-items: flex-start;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .form-container button {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 .label {
-    padding-right: 10px;
+  padding-right: 10px;
 }
 
 .movieCard {
-    position: relative;
-    width: fit-content;
-    margin: 10px;
+  position: relative;
+  width: fit-content;
+  margin: 10px;
+  border: 3px solid white;
 }
 
 .fav {
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 #moviesList {
-    display: flex;
-    flex-wrap: wrap ;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .poster:hover {
-    filter:blur(10px)
+  filter: blur(10px);
 }
 
 .poster {
-    width: 185px;
-    height: 300px;
+  width: 185px;
+  height: 300px;
+}
+
+.errorContainer {
+  display: flex;
+  align-items: center;
+  background-color: rgba(70, 69, 69, 0.842);
+  justify-content: center;
+  padding: 20px;
+  margin-top: 50px;
+  align-self: center;
+}
+
+.errorMsg {
+  color: white;
+  padding-left: 12000;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-self: center;
 }

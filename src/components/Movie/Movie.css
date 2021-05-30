@@ -1,10 +1,6 @@
 .moviecard {
   font: 14px/22px "Lato", Arial, sans-serif;
   padding: 40px 0;
-  /*   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
 }
 
 #myMovie {
