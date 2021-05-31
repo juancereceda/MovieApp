@@ -22,7 +22,7 @@
   position: relative;
   width: fit-content;
   margin: 20px;
-  border: 3px solid white;
+  border: 2px solid white;
 }
 
 .fav {
@@ -44,6 +44,7 @@
 .poster {
   width: 185px;
   height: 300px;
+  margin-bottom: -4px;
 }
 
 .errorContainer {
@@ -80,13 +81,18 @@
 .notPoster {
   width: 185px;
   height: 300px;
-  background-color: black;
+  background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  color: white;
+}
+
+#notUnderlined {
   text-decoration: none;
+  color: #adadad;
+  font-size: 20px;
+  text-align: center;
 }
 
 .prevNext {

@@ -8,7 +8,7 @@ import {
   getMovies,
   removeMovieFavorite,
 } from "../../actions/index";
-import Blocked from "../../blocked.png";
+import Blocked from "../../no-image.png";
 import Prev from "../../left-arrow.png";
 import Next from "../../right-arrow.png";
 
@@ -43,12 +43,13 @@ export function Buscador(props) {
           <div id="moviesList">
             {props.movies.map((movie) => (
               <div className="movieCard" key={movie.imdbID}>
-                <Link to={`/movie/${movie.imdbID}`}>
+                <Link to={`/movie/${movie.imdbID}`} id={"notUnderlined"}>
                   {movie.Poster === "N/A" ? (
                     <div className="notPoster">
-                      <span></span>
-                      <img src={Blocked} width="150" height="210" />
-                      <span>{movie.Title}</span>
+                      <img src={Blocked} width="150" height="150" />
+                      <span id="notTitle">
+                        {movie.Title} ({movie.Year})
+                      </span>
                     </div>
                   ) : (
                     <img className="poster" src={movie.Poster} />
