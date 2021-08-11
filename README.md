@@ -6,7 +6,7 @@ Using this app you will be able to:
 
 - Search movies.
 - See detailed information about a specific movie.
-- Add movies to your personalized watchlist.
+- Add movies to your personalized watchlist (saved on local storage).
 - Remove movies from your watchlist.
 
 ### First Step
