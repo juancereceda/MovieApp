@@ -22,7 +22,7 @@ export function getMovies(titulo, numPage) {
 export function getMovieDetail(id) {
   return function (dispatch) {
     return fetch(
-      "https://www.omdbapi.com/?apikey=20dac387&i=" + id + "&plot=full"
+      `https://www.omdbapi.com/?apikey=${REACT_APP_API_KEY}&i=${id}&plot=full`
     )
       .then((response) => response.json())
       .then((json) => {
